@@ -11,9 +11,9 @@ class StarWarsStuff extends Component {
   }
   render() {
     return this.props.loading ? (<h1>LOADING</h1>) : (
-      <div id="starwarsstuff">
-        { JSON.stringify(this.props.starwarsstuff) }
-      </div>
+      <pre id="starwarsstuff">
+        { JSON.stringify(this.props.starwarsstuff, null, 2) }
+      </pre>
     );
   }
 }
