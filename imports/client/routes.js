@@ -1,8 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
-import ApolloClient from 'apollo-client';
-import { meteorClientConfig } from 'meteor/apollo';
+import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 
 import { Meteor } from 'meteor/meteor';
@@ -10,7 +9,8 @@ import { Meteor } from 'meteor/meteor';
 import StarWarsStuff from '/imports/client/star-wars-stuff.js';
 
 Meteor.startup(() => {
-  const client = new ApolloClient(meteorClientConfig());
+  const networkInterface = createNetworkInterface('http://127.0.0.1/graphql');
+  const client = new ApolloClient(networkInterface);
   render((
     <ApolloProvider client={client}>
       <Router history={browserHistory}>
