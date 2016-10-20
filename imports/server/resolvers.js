@@ -1,9 +1,9 @@
 import Meteor from 'meteor/meteor';
-import StarWarsStuff from '/imports/server/starwarsstuff.js';
+import StarWarsStuff from './starwarsstuff';
 
 const resolveFunctions = {
   Query: {
-    starwarsstuff(root, args, context) {
+    starwarsstuff() {
       return StarWarsStuff.find().fetch();
     },
   },

@@ -6,9 +6,6 @@ import { Meteor } from 'meteor/meteor';
 
 
 class StarWarsStuff extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return this.props.loading ? (<h1>LOADING</h1>) : (
       <pre id="starwarsstuff">
@@ -32,7 +29,7 @@ const qsws = gql`
 `;
 
 const StarWarsStuffWithData = graphql(qsws, {
-  props: ({ data: { loading, starwarsstuff, refetch } }) => ({
+  props: ({ data: { loading, starwarsstuff } }) => ({
     loading,
     starwarsstuff: starwarsstuff || [],
   }),
