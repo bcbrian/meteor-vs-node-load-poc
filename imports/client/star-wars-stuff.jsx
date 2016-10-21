@@ -24,6 +24,18 @@ const qsws = gql`
   query qsws{
     starwarsstuff: starwarsstuff{
       _id
+      edited
+      consumables
+      name
+      created
+      cargo_capacity
+      passengers
+      max_atmosphering_speed
+      crew
+      length
+      model
+      cost_in_credits
+      manufacturer
     }
   }
 `;
