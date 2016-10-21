@@ -31,6 +31,7 @@
     "graphql-tools": "^0.7.2",
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.3.2",
+    "react-addons-pure-render-mixin": "^15.3.2",
     "react-apollo": "^0.5.9",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1"

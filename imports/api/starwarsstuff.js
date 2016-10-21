@@ -1,6 +1,6 @@
 import { Mongo } from 'meteor/mongo'
 import { Meteor } from 'meteor/meteor'
-import starwarsstuffs from './starwarsstuff';
+import starwarsstuffs from '../data/starwarsstuff';
 
 const StarWarsStuff = new Mongo.Collection('starwarsstuff');
 

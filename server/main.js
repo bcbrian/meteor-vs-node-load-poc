@@ -1,4 +1,4 @@
-import { loadData } from '/imports/server/starwarsstuff.js';
-import '/imports/server/apollo.js'
+import { loadData } from '/imports/api/starwarsstuff.js';
+import '/imports/api/publications.js'
 
 loadData();

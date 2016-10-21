@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
-
+import { createContainer } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
+import SWS from '../api/starwarsstuff';
 
 
 class StarWarsStuff extends Component {
@@ -20,19 +19,16 @@ StarWarsStuff.propTypes = {
   loading: PropTypes.bool.isRequired,
 };
 
-const qsws = gql`
-  query qsws{
-    starwarsstuff: starwarsstuff{
-      _id
-    }
+export default StarWarsStuffContainer = createContainer(() => {
+  const swsHandle = Meteor.subscribe('StarWarsStuff');
+  const loading = !swsHandle.ready();
+  let starwarsstuff = [];
+  if (!loading) {
+    console.log('Not loading');
+    starwarsstuff = SWS.find().fetch();
   }
-`;
-
-const StarWarsStuffWithData = graphql(qsws, {
-  props: ({ data: { loading, starwarsstuff } }) => ({
+  return {
     loading,
-    starwarsstuff: starwarsstuff || [],
-  }),
-})(StarWarsStuff);
-
-export default StarWarsStuffWithData;
+    starwarsstuff,
+  };
+}, StarWarsStuff);
